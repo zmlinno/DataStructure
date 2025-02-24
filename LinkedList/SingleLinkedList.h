@@ -238,6 +238,91 @@ ListNode* TwoNode(ListNode*head)
     return dummy->next;
 
 }
+
+// 困难反转前k个节点的函数
+ListNode* reverSNodes(ListNode* head,int k)
+{
+    if(!head||k<=1)return head;
+
+    ListNode* prev = nullptr;
+    ListNode* curr = head;
+    ListNode* next = nullptr;
+
+    //搜索到k+1个节点
+    ListNode* tail = head;
+    for(int i = 0;i<k && tail;i++)
+    {
+        tail = tail->next;
+
+    }
+    //反转前k个节点
+    for(int i = 0;i<k&&curr;i++)
+    {
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
+    }
+
+    //连接剩余部分
+    head->next = tail;
+    return prev;
+}
+
+
+// 力扣25 困难 反转 k 个节点的链表部分 这个是真的解答
+ListNode* reverseKGroup(ListNode* head, int k) {
+    if (!head || k == 1) return head; // 如果链表为空或 k=1，直接返回
+
+    // 计算链表长度
+    ListNode* temp = head;
+    int length = 0;
+    while (temp) {
+        length++;
+        temp = temp->next;
+    }
+
+    ListNode dummy(0);
+    dummy.next = head;
+    ListNode* prev = &dummy;
+    ListNode* curr = head;
+
+    while (length >= k) {
+        ListNode* tail = curr;
+        ListNode* nextGroup = curr->next;
+
+        // 反转 k 个节点
+        ListNode* prevNode = nullptr;
+        for (int i = 0; i < k; i++) {
+            ListNode* next = curr->next;
+            curr->next = prevNode;
+            prevNode = curr;
+            curr = next;
+        }
+
+        // 连接反转部分
+        prev->next = prevNode;
+        tail->next = curr;
+        prev = tail;
+
+        length -= k;
+    }
+
+    return dummy.next;
+}
+//创建链表
+// 创建链表
+ListNode* createList(initializer_list<int> vals) {
+    ListNode* dummy = new ListNode(0);
+    ListNode* tail = dummy;
+    for (int v : vals) {
+        tail->next = new ListNode(v);
+        tail = tail->next;
+    }
+    return dummy->next;
+}
+
+
 //打印
 void printList(ListNode* head)
 {
