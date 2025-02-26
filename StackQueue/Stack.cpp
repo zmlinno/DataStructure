@@ -3,7 +3,7 @@
 #include "Stack.h"
 #include <iostream>
 #include <cassert>
-
+using namespace std；
 Stack::Stack() : _a(nullptr), _top(0), _capacity(0) {}
 
 Stack::~Stack() { delete[] _a; }
