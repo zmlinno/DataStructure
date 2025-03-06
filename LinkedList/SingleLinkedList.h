@@ -362,6 +362,28 @@ ListNode* sortList(ListNode* head)
 }
 
 
+//力扣138 随机链表的复制 中等
+ListNode* copyRandomList(ListNode* head)
+{
+    if(!head)return nullptr;
+    unordered_map<ListNode*,ListNode*>nodeMap;//记录原节点的和新节点的映射
+    ListNode* cur = head;
+    while(cur)
+    {
+        nodeMap[cur] = new ListNode(cur->val);
+        cur = cur->next;
+    }
+    
+    //遍历链表，连接next和random
+    cur = head;
+    while(cur)
+    {
+        nodeMap[cur]->next = nodeMap[cur->next];
+        nodeMap[cur]->random = nodeMap[cur->random];
+        cur = cur->next;
+    }
+    return nodeMap[head];
+}
 
 
 
