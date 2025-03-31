@@ -1,7 +1,7 @@
 #pragma once
 #include"recursive.h"
 #include<algorithm>
-//AVL树
+//AVL树和基本树
 using namespace std;
 
 TreeNode::TreeNode(int x) :val(x),left(nullptr),right(nullptr){}
