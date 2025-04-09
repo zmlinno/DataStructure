@@ -1,7 +1,7 @@
 #pragma once
 #ifndef BINARYTREE_H
 #define BINARYTREE_H
-
+#äºŒå‰æ ‘
 #include<iostream>
 
 struct TreeNode
@@ -11,35 +11,35 @@ struct TreeNode
 	TreeNode* left;
 	TreeNode* right;
 
-	TreeNode(int x); //¹¹Ôìº¯Êı
+	TreeNode(int x); //æ„é€ å‡½æ•°
 };
 
 class BinaryTree
 {
 public:
-	BinaryTree(); //¹¹Ôìº¯Êı
-	~BinaryTree();//Îö¹¹º¯Êı
+	BinaryTree(); //æ„é€ å‡½æ•°
+	~BinaryTree();//ææ„å‡½æ•°
 
-	void insert(int val); //²åÈë½Úµã 
-	void remove(int val); //É¾³ı½Úµã
-	void inorderTraversal(); //ÖĞĞò±éÀú
-	int maxDepth(); //Çó×î´óÉî¶È
-	bool search(int target);  //²éÕÒÄ³¸öÖµ
+	void insert(int val); //æ’å…¥èŠ‚ç‚¹ 
+	void remove(int val); //åˆ é™¤èŠ‚ç‚¹
+	void inorderTraversal(); //ä¸­åºéå†
+	int maxDepth(); //æ±‚æœ€å¤§æ·±åº¦
+	bool search(int target);  //æŸ¥æ‰¾æŸä¸ªå€¼
 
 private:
 	TreeNode* root;
 
-	//ÄÚ²¿µİ¹éº¯Êı
+	//å†…éƒ¨é€’å½’å‡½æ•°
 	TreeNode* insert(TreeNode* node, int val);
 	TreeNode* deleteNode(TreeNode* node, int val);
 	TreeNode* minValueNode(TreeNode* node);
 	void inorderTraversal(TreeNode* node);
 	int maxDepth(TreeNode* node);
 	bool search(TreeNode* node, int target);
-	void destrotTree(TreeNode* node); //ÊÍ·ÅÄÚ´æ
+	void destrotTree(TreeNode* node); //é‡Šæ”¾å†…å­˜
 
 
-	//Æ½ºâÏà¹Ø
+	//å¹³è¡¡ç›¸å…³
 	int getHeight(TreeNode* node);
 	int getBalance(TreeNode* node);
 	TreeNode* rotateLeft(TreeNode* node);
