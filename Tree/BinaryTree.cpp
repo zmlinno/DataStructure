@@ -2,6 +2,7 @@
 #include"recursive.h"
 #include<algorithm>
 //AVL树和基本树
+//jiben
 using namespace std;
 
 TreeNode::TreeNode(int x) :val(x),left(nullptr),right(nullptr){}
