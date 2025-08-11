@@ -16,5 +16,8 @@ int main(int argc, const char * argv[]) {
     tree.printPostorder();
     tree.printLevelOrder();
     
+    BinaryTree tree1;
+    tree1.createDemoTree();
+    cout << tree1.pathSum(tree.getRoot(), 8) << endl;
     return 0;
 }

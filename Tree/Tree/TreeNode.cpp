@@ -8,6 +8,8 @@
 #include "TreeNode.hpp"
 #include<iostream>
 #include<queue>
+#include<unordered_map>
+#include<vector>
 using namespace std;
 
 
@@ -120,4 +122,26 @@ void BinaryTree::printLevelOrder()
     }
     cout<<endl;
     
+}
+
+
+
+
+//路径总和
+int BinaryTree::dfs(TreeNode* node,long long targetSum)
+{
+    if(!node)return 0;
+    int count = (node->val == targetSum) ? 1:0;
+    count += dfs(node->left,targetSum - node->val);
+    count += dfs(node->right,targetSum - node->val);
+    return count;
+}
+
+int BinaryTree::pathSum(TreeNode *root, int targetSum)
+{
+    if(!root)return 0;
+    
+    return dfs(root,targetSum)
+    + pathSum(root->left,targetSum)
+    + pathSum(root->right,targetSum);
 }

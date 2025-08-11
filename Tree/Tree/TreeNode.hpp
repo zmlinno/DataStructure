@@ -9,13 +9,16 @@
 #define TreeNode_hpp
 
 #include <stdio.h>
+#include<vector>
+#include<unordered_map>
+using namespace std;
 struct TreeNode
 {
     int val;
     TreeNode* left;
     TreeNode* right;
     
-    TreeNode(int v); //构造函数声明
+    TreeNode(int x);
 };
 
 
@@ -25,13 +28,22 @@ class BinaryTree
 private:
     TreeNode* root;
     
+    
+    
     //辅助递归函数
     void preorder(TreeNode* node);
     void inorder(TreeNode* node);
     void postorder(TreeNode* node);
     
+    int dfs(TreeNode* node,long long targetSum);
+    
+    
 public:
     BinaryTree();
+    TreeNode* getRoot()
+    {
+        return root;
+    }
     
     void createDemoTree();
     void printPreorder();
@@ -40,5 +52,11 @@ public:
     
     //层序遍历函数
     void printLevelOrder();
+    
+    //路径总和3
+    int pathSum(TreeNode* root,int targetSum);
+    
+    
+    
 };
 #endif /* TreeNode_hpp */
